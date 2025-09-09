@@ -34,3 +34,10 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
+
+
+seeds:
+  exchange_rate:
+    +schema: exchange_rate_raw
+  banvic:
+    +schema: banvic_raw
