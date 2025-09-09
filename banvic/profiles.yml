@@ -1,0 +1,12 @@
+banvic:
+  outputs:
+    dev:
+      dbname: banvic
+      host: localhost
+      pass: secure_password
+      port: 55432
+      schema: dev
+      threads: 4
+      type: postgres
+      user: banvic_root
+  target: dev
