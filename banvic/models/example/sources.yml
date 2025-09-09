@@ -1,0 +1,159 @@
+
+version: 2
+
+sources:
+  - name: banvic_raw
+    description: "Raw data from Banvic ERP system"
+    schema: dev
+    tables:
+      - name: agencias
+        description: "Bank agencies data"
+        columns:
+          - name: cod_agencia
+            description: "Agency code - primary key"
+            data_tests:
+              - unique
+              - not_null
+          - name: nome
+            description: "Agency name"
+          - name: endereco
+            description: "Agency address"
+          - name: cidade
+            description: "City"
+          - name: uf
+            description: "State"
+          - name: data_abertura
+            description: "Opening date"
+          - name: tipo_agencia
+            description: "Agency type (Digital/Física)"
+
+      - name: clientes
+        description: "Customer data"
+        columns:
+          - name: cod_cliente
+            description: "Customer code - primary key"
+            data_tests:
+              - unique
+              - not_null
+          - name: primeiro_nome
+            description: "First name"
+          - name: ultimo_nome
+            description: "Last name"
+          - name: email
+            description: "Email address"
+          - name: tipo_cliente
+            description: "Customer type (PF/PJ)"
+          - name: data_inclusao
+            description: "Inclusion date"
+          - name: cpfcnpj
+            description: "CPF or CNPJ document"
+          - name: data_nascimento
+            description: "Birth date"
+          - name: endereco
+            description: "Address"
+          - name: cep
+            description: "ZIP code"
+
+      - name: colaboradores
+        description: "Employee data"
+        columns:
+          - name: cod_colaborador
+            description: "Employee code - primary key"
+            data_tests:
+              - unique
+              - not_null
+          - name: primeiro_nome
+            description: "First name"
+          - name: ultimo_nome
+            description: "Last name"
+          - name: email
+            description: "Email address"
+          - name: cpf
+            description: "CPF document"
+          - name: data_nascimento
+            description: "Birth date"
+          - name: endereco
+            description: "Address"
+          - name: cep
+            description: "ZIP code"
+
+      - name: contas
+        description: "Account data"
+        columns:
+          - name: num_conta
+            description: "Account number - primary key"
+            data_tests:
+              - unique
+              - not_null
+          - name: cod_cliente
+            description: "Customer code - foreign key"
+          - name: cod_agencia
+            description: "Agency code - foreign key"
+          - name: cod_colaborador
+            description: "Employee code - foreign key"
+          - name: tipo_conta
+            description: "Account type"
+          - name: data_abertura
+            description: "Opening date"
+          - name: saldo_total
+            description: "Total balance"
+          - name: saldo_disponivel
+            description: "Available balance"
+          - name: data_ultimo_lancamento
+            description: "Last transaction date"
+
+      - name: propostas_credito
+        description: "Credit proposal data"
+        columns:
+          - name: cod_proposta
+            description: "Proposal code - primary key"
+            data_tests:
+              - unique
+              - not_null
+          - name: cod_cliente
+            description: "Customer code - foreign key"
+          - name: cod_colaborador
+            description: "Employee code - foreign key"
+          - name: data_entrada_proposta
+            description: "Proposal entry date"
+          - name: taxa_juros_mensal
+            description: "Monthly interest rate"
+          - name: valor_proposta
+            description: "Proposal value"
+          - name: valor_financiamento
+            description: "Financing value"
+          - name: valor_entrada
+            description: "Down payment value"
+          - name: valor_prestacao
+            description: "Installment value"
+          - name: quantidade_parcelas
+            description: "Number of installments"
+          - name: carencia
+            description: "Grace period"
+          - name: status_proposta
+            description: "Proposal status"
+
+      - name: transacoes
+        description: "Transaction data"
+        columns:
+          - name: cod_transacao
+            description: "Transaction code - primary key"
+            data_tests:
+              - unique
+              - not_null
+          - name: num_conta
+            description: "Account number - foreign key"
+          - name: data_transacao
+            description: "Transaction date"
+          - name: nome_transacao
+            description: "Transaction name/type"
+          - name: valor_transacao
+            description: "Transaction value"
+
+      - name: colaborador_agencia
+        description: "Employee-Agency relationship data"
+        columns:
+          - name: cod_colaborador
+            description: "Employee code - foreign key"
+          - name: cod_agencia
+            description: "Agency code - foreign key"

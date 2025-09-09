@@ -1,2 +1,8 @@
 dbt-core
 dbt-postgres
+ipykernel
+pandas
+numpy
+seaborn
+matplotlib
+scikit-learn
