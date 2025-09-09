@@ -1,0 +1,11 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: banvic
+      POSTGRES_USER: banvic_root
+      POSTGRES_PASSWORD: secure_password
+    volumes:
+      - ./dbdata:/var/lib/postgresql/data
+    ports:
+      - 55432:5432
