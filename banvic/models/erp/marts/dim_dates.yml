@@ -1,0 +1,63 @@
+models:
+  - name: dim_dates
+    description: "Dimensão de datas para análises temporais e sazonais"
+    columns:
+      - name: date_id
+        description: "Chave primária da data (formato YYYY-MM-DD)"
+        tests:
+          - unique
+          - not_null
+      - name: ano
+        description: "Ano da data"
+      - name: trimestre
+        description: "Trimestre do ano (1-4)"
+      - name: mes
+        description: "Mês do ano (1-12)"
+      - name: dia
+        description: "Dia do mês"
+      - name: dia_do_ano
+        description: "Dia do ano (1-366)"
+      - name: nome_mes
+        description: "Nome completo do mês"
+      - name: nome_mes_abrev
+        description: "Nome abreviado do mês"
+      - name: mes_formatado
+        description: "Mês formatado com zero à esquerda (01-12)"
+      - name: semana_do_ano
+        description: "Semana do ano"
+      - name: dia_semana_num
+        description: "Número do dia da semana (0=domingo, 1=segunda, etc.)"
+      - name: nome_dia
+        description: "Nome completo do dia da semana"
+      - name: nome_dia_abrev
+        description: "Nome abreviado do dia da semana"
+      - name: eh_fim_de_semana
+        description: "Indicador se é fim de semana (true/false)"
+      - name: eh_dia_util
+        description: "Indicador se é dia útil (true/false)"
+      - name: estacao
+        description: "Estação do ano (Verão, Outono, Inverno, Primavera)"
+      - name: mes_par_impar
+        description: "Classificação se o mês é par ou ímpar"
+      - name: semestre
+        description: "Semestre do ano (1-4)"
+      - name: data_completa
+        description: "Data completa no formato YYYY-MM-DD"
+      - name: data_brasileira
+        description: "Data no formato brasileiro DD/MM/YYYY"
+      - name: ano_mes
+        description: "Ano e mês no formato YYYYMM"
+      - name: ano_trimestre
+        description: "Ano e trimestre no formato YYYY-Q"
+      - name: periodo_relativo
+        description: "Período relativo (Hoje, Ontem, Amanhã, Passado, Futuro)"
+      - name: dias_desde_hoje
+        description: "Número de dias desde hoje"
+      - name: ano_iso
+        description: "Ano ISO (baseado em semanas ISO)"
+      - name: dia_semana_iso
+        description: "Dia da semana ISO (1=segunda, 7=domingo)"
+      - name: created_at
+        description: "Timestamp de criação do registro"
+      - name: source_table
+        description: "Tabela de origem do registro"

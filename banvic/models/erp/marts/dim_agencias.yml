@@ -1,0 +1,21 @@
+models:
+  - name: dim_agencias
+    description: "Dimensão de agências bancárias para análises geográficas e operacionais"
+    columns:
+      - name: agencia_pk
+        description: "Chave primária da agência"
+        tests:
+          - unique
+          - not_null
+      - name: nome
+        description: "Nome da agência"
+      - name: endereco
+        description: "Endereço completo da agência"
+      - name: cidade
+        description: "Cidade onde a agência está localizada"
+      - name: uf
+        description: "Estado (Unidade Federativa) da agência"
+      - name: data_abertura
+        description: "Data de abertura da agência"
+      - name: tipo_agencia
+        description: "Tipo de agência (Digital ou Física)"

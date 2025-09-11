@@ -1,0 +1,27 @@
+models:
+  - name: dim_clientes
+    description: "Dimensão de clientes para análises demográficas e comportamentais"
+    columns:
+      - name: cliente_pk
+        description: "Chave primária do cliente"
+        tests:
+          - unique
+          - not_null
+      - name: nome_completo
+        description: "Nome completo do cliente"
+      - name: email
+        description: "Endereço de email do cliente"
+      - name: tipo_cliente_desc
+        description: "Descrição do tipo de cliente (Pessoa Física ou Pessoa Jurídica)"
+      - name: data_inclusao
+        description: "Data de inclusão do cliente no sistema"
+      - name: dias_desde_inclusao
+        description: "Número de dias desde a inclusão do cliente"
+      - name: cpfcnpj
+        description: "Documento CPF ou CNPJ do cliente"
+      - name: idade_anos
+        description: "Idade do cliente em anos"
+      - name: endereco
+        description: "Endereço do cliente"
+      - name: cep
+        description: "Código postal do cliente"

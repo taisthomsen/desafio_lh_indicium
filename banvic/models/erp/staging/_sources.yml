@@ -3,157 +3,157 @@ version: 2
 
 sources:
   - name: banvic_raw
-    description: "Raw data from Banvic ERP system"
+    description: "Dados brutos do sistema ERP Banvic"
     schema: dev
     tables:
       - name: agencias
-        description: "Bank agencies data"
+        description: "Dados das agências bancárias"
         columns:
           - name: cod_agencia
-            description: "Agency code - primary key"
+            description: "Código da agência - chave primária"
             data_tests:
               - unique
               - not_null
           - name: nome
-            description: "Agency name"
+            description: "Nome da agência"
           - name: endereco
-            description: "Agency address"
+            description: "Endereço da agência"
           - name: cidade
-            description: "City"
+            description: "Cidade"
           - name: uf
-            description: "State"
+            description: "Estado"
           - name: data_abertura
-            description: "Opening date"
+            description: "Data de abertura"
           - name: tipo_agencia
-            description: "Agency type (Digital/Física)"
+            description: "Tipo de agência (Digital/Física)"
 
       - name: clientes
-        description: "Customer data"
+        description: "Dados dos clientes"
         columns:
           - name: cod_cliente
-            description: "Customer code - primary key"
+            description: "Código do cliente - chave primária"
             data_tests:
               - unique
               - not_null
           - name: primeiro_nome
-            description: "First name"
+            description: "Primeiro nome"
           - name: ultimo_nome
-            description: "Last name"
+            description: "Sobrenome"
           - name: email
-            description: "Email address"
+            description: "Endereço de email"
           - name: tipo_cliente
-            description: "Customer type (PF/PJ)"
+            description: "Tipo de cliente (PF/PJ)"
           - name: data_inclusao
-            description: "Inclusion date"
+            description: "Data de inclusão"
           - name: cpfcnpj
-            description: "CPF or CNPJ document"
+            description: "Documento CPF ou CNPJ"
           - name: data_nascimento
-            description: "Birth date"
+            description: "Data de nascimento"
           - name: endereco
-            description: "Address"
+            description: "Endereço"
           - name: cep
-            description: "ZIP code"
+            description: "Código postal"
 
       - name: colaboradores
-        description: "Employee data"
+        description: "Dados dos colaboradores"
         columns:
           - name: cod_colaborador
-            description: "Employee code - primary key"
+            description: "Código do colaborador - chave primária"
             data_tests:
               - unique
               - not_null
           - name: primeiro_nome
-            description: "First name"
+            description: "Primeiro nome"
           - name: ultimo_nome
-            description: "Last name"
+            description: "Sobrenome"
           - name: email
-            description: "Email address"
+            description: "Endereço de email"
           - name: cpf
-            description: "CPF document"
+            description: "Documento CPF"
           - name: data_nascimento
-            description: "Birth date"
+            description: "Data de nascimento"
           - name: endereco
-            description: "Address"
+            description: "Endereço"
           - name: cep
-            description: "ZIP code"
+            description: "Código postal"
 
       - name: contas
-        description: "Account data"
+        description: "Dados das contas"
         columns:
           - name: num_conta
-            description: "Account number - primary key"
+            description: "Número da conta - chave primária"
             data_tests:
               - unique
               - not_null
           - name: cod_cliente
-            description: "Customer code - foreign key"
+            description: "Código do cliente - chave estrangeira"
           - name: cod_agencia
-            description: "Agency code - foreign key"
+            description: "Código da agência - chave estrangeira"
           - name: cod_colaborador
-            description: "Employee code - foreign key"
+            description: "Código do colaborador - chave estrangeira"
           - name: tipo_conta
-            description: "Account type"
+            description: "Tipo de conta"
           - name: data_abertura
-            description: "Opening date"
+            description: "Data de abertura"
           - name: saldo_total
-            description: "Total balance"
+            description: "Saldo total"
           - name: saldo_disponivel
-            description: "Available balance"
+            description: "Saldo disponível"
           - name: data_ultimo_lancamento
-            description: "Last transaction date"
+            description: "Data do último lançamento"
 
       - name: propostas_credito
-        description: "Credit proposal data"
+        description: "Dados das propostas de crédito"
         columns:
           - name: cod_proposta
-            description: "Proposal code - primary key"
+            description: "Código da proposta - chave primária"
             data_tests:
               - unique
               - not_null
           - name: cod_cliente
-            description: "Customer code - foreign key"
+            description: "Código do cliente - chave estrangeira"
           - name: cod_colaborador
-            description: "Employee code - foreign key"
+            description: "Código do colaborador - chave estrangeira"
           - name: data_entrada_proposta
-            description: "Proposal entry date"
+            description: "Data de entrada da proposta"
           - name: taxa_juros_mensal
-            description: "Monthly interest rate"
+            description: "Taxa de juros mensal"
           - name: valor_proposta
-            description: "Proposal value"
+            description: "Valor da proposta"
           - name: valor_financiamento
-            description: "Financing value"
+            description: "Valor do financiamento"
           - name: valor_entrada
-            description: "Down payment value"
+            description: "Valor da entrada"
           - name: valor_prestacao
-            description: "Installment value"
+            description: "Valor da prestação"
           - name: quantidade_parcelas
-            description: "Number of installments"
+            description: "Quantidade de parcelas"
           - name: carencia
-            description: "Grace period"
+            description: "Período de carência"
           - name: status_proposta
-            description: "Proposal status"
+            description: "Status da proposta"
 
       - name: transacoes
-        description: "Transaction data"
+        description: "Dados das transações"
         columns:
           - name: cod_transacao
-            description: "Transaction code - primary key"
+            description: "Código da transação - chave primária"
             data_tests:
               - unique
               - not_null
           - name: num_conta
-            description: "Account number - foreign key"
+            description: "Número da conta - chave estrangeira"
           - name: data_transacao
-            description: "Transaction date"
+            description: "Data da transação"
           - name: nome_transacao
-            description: "Transaction name/type"
+            description: "Nome/tipo da transação"
           - name: valor_transacao
-            description: "Transaction value"
+            description: "Valor da transação"
 
       - name: colaborador_agencia
-        description: "Employee-Agency relationship data"
+        description: "Dados do relacionamento colaborador-agência"
         columns:
           - name: cod_colaborador
-            description: "Employee code - foreign key"
+            description: "Código do colaborador - chave estrangeira"
           - name: cod_agencia
-            description: "Agency code - foreign key"
+            description: "Código da agência - chave estrangeira"

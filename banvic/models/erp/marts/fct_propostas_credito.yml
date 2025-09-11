@@ -1,0 +1,47 @@
+models:
+  - name: fct_propostas_credito
+    description: "Tabela de fatos de propostas de crédito com dimensões relacionadas"
+    columns:
+      - name: proposta_pk
+        description: "Chave primária da proposta de crédito"
+        tests:
+          - unique
+          - not_null
+      
+      # Foreign Keys
+      - name: colaborador_fk
+        description: "Chave estrangeira para a dimensão de colaboradores"
+        tests:
+          - not_null
+      - name: cliente_fk
+        description: "Chave estrangeira para a dimensão de clientes"
+        tests:
+          - not_null
+      - name: agencia_fk
+        description: "Chave estrangeira para a dimensão de agências"
+        tests:
+          - not_null
+      
+      # Proposal Details
+      - name: data_entrada_proposta
+        description: "Data de entrada da proposta no sistema"
+      - name: ano_proposta
+        description: "Ano da proposta de crédito"
+      - name: mes_proposta
+        description: "Mês da proposta de crédito"
+      - name: taxa_juros_mensal
+        description: "Taxa de juros mensal da proposta"
+      - name: valor_proposta
+        description: "Valor total da proposta de crédito"
+      - name: valor_financiamento
+        description: "Valor do financiamento aprovado"
+      - name: valor_entrada
+        description: "Valor da entrada (down payment) da proposta"
+      - name: valor_prestacao
+        description: "Valor da prestação mensal"
+      - name: quantidade_parcelas
+        description: "Quantidade de parcelas do financiamento"
+      - name: carencia
+        description: "Período de carência em meses"
+      - name: status_proposta
+        description: "Status atual da proposta (Aprovada, Enviada, Em análise, Validação documentos)"
