@@ -19,14 +19,6 @@ with
             ,c.cod_agencia_id
             ,t.data_transacao
             ,cast(t.data_transacao as date) as data_transacao_date
-            ,extract(year from t.data_transacao) as ano
-            ,extract(month from t.data_transacao) as mes
-            ,extract(dow from t.data_transacao) as dia_semana
-            ,case 
-                when mod(extract(month from t.data_transacao),2)=0 
-                    then 'par' 
-                    else 'impar' 
-                    end as mes_par_impar
             ,t.nome_transacao
             ,t.valor_transacao
             ,abs(t.valor_transacao) as valor_abs

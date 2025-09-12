@@ -1,0 +1,18 @@
+Data,Dia_da_Semana,Feriado
+1/1/25,quarta-feira,Confraternização Universal
+3/3/25,segunda-feira,Carnaval
+4/3/25,terça-feira,Carnaval
+23/3/25,domingo,Aniversário Florianópolis
+18/4/25,sexta-feira,Paixão de Cristo
+21/4/25,segunda-feira,Tiradentes
+1/5/25,quinta-feira,Dia do Trabalho
+19/6/25,quinta-feira,Corpus Christi
+7/9/25,domingo,Independência do Brasil
+12/10/25,domingo,Nossa Sr.a Aparecida - Padroeira do Brasil
+2/11/25,domingo,Finados
+15/11/25,sábado,Proclamação da República
+20/11/25,quinta-feira,Dia Nacional de Zumbi e da Consciência Negra
+25/12/25,quinta-feira,Natal
+
+Pascoa
+  round(DIA(MINUTO(ano/38)/2+56)||'/5'||'/'||ano,7)-34

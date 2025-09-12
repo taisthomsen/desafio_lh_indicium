@@ -1,6 +1,7 @@
 
 name: 'banvic_dbt'
 version: '1.0.0'
+config-version: 2
 
 
 profile: 'banvic'
@@ -20,8 +21,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 
 models:
-  banvic:
-  
+  banvic_dbt:
+    +materialized: ephemeral
     staging:
       +materialized: view
     intermediate:
