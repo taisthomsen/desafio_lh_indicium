@@ -25,10 +25,6 @@ models:
       # Proposal Details
       - name: data_entrada_proposta
         description: "Data de entrada da proposta no sistema"
-      - name: ano_proposta
-        description: "Ano da proposta de crédito"
-      - name: mes_proposta
-        description: "Mês da proposta de crédito"
       - name: taxa_juros_mensal
         description: "Taxa de juros mensal da proposta"
       - name: valor_proposta

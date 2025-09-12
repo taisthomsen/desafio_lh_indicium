@@ -36,8 +36,6 @@ with
             
             -- Proposal Details
             ,p.data_entrada_proposta
-            ,p.ano_proposta
-            ,p.mes_proposta
             ,p.taxa_juros_mensal
             ,p.valor_proposta
             ,p.valor_financiamento

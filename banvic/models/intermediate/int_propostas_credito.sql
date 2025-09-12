@@ -11,8 +11,6 @@ with
             ,cod_cliente_id as cliente_fk
             ,cod_colaborador_id as colaborador_fk
             ,data_entrada_proposta
-            ,extract(year from data_entrada_proposta) as ano_proposta
-            ,extract(month from data_entrada_proposta) as mes_proposta
             ,taxa_juros_mensal
             ,valor_proposta
             ,valor_financiamento

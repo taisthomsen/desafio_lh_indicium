@@ -37,10 +37,6 @@ with
             ,t.num_conta_id
             ,t.data_transacao
             ,t.data_transacao_date
-            ,t.ano
-            ,t.mes
-            ,t.dia_semana
-            ,t.mes_par_impar
             ,t.nome_transacao
             ,t.valor_transacao
             ,t.valor_abs
