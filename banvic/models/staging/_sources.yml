@@ -157,3 +157,39 @@ sources:
             description: "Código do colaborador - chave estrangeira"
           - name: cod_agencia
             description: "Código da agência - chave estrangeira"
+
+      - name: usd_brl
+        description: "Taxa de câmbio USD/BRL histórica"
+        columns:
+          - name: date
+            description: "Data da taxa de câmbio"
+            data_tests:
+              - not_null
+          - name: exchange_rate_br
+            description: "Taxa de câmbio USD para BRL"
+            data_tests:
+              - not_null
+
+      - name: feriados_pmf
+        description: "Feriados de Florianópolis/SC"
+        columns:
+          - name: Data
+            description: "Data do feriado"
+            data_tests:
+              - not_null
+          - name: Dia_da_Semana
+            description: "Dia da semana do feriado"
+          - name: Feriado
+            description: "Nome do feriado"
+  
+  - name: cotacao
+    description: "Cotacao do dolar"
+    schema: dev
+    tables:
+      - name: usd_brl
+        description: "Cotacao do dolar"
+        columns:
+          - name: date
+            description: "Data da cotacao"
+            data_tests:
+              - not_null

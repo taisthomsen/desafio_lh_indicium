@@ -8,10 +8,10 @@
     ]
 ) }}
 
-with   
-    recursive dates as (
+with
+ recursive dates as (
     -- Date range: 5 years back from current date to 2 years forward
-     select cast(current_date - interval '5 years' as date) as date_day
+     select cast(current_date - interval '16 years' as date) as date_day
          union all
             select cast(date_day + interval '1 day' as date)
                 from dates
@@ -49,7 +49,8 @@ with
             end as eh_fim_de_semana
             
             ,case 
-                when extract(dow from date_day) in (1, 2, 3, 4, 5) then true 
+    
+                when extract(dow from date_day) in (1, 2, 3, 4, 5) then true
                 else false 
             end as eh_dia_util
             

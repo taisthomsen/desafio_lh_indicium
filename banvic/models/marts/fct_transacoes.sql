@@ -8,7 +8,10 @@ with
         select *
         from {{ ref('stg_erp__contas') }}
     )
-
+    ,cotacao as (
+        select *
+        from {{ ref('stg_erp__cotacao') }}
+    )
     ,clientes as (
         select *
         from {{ ref('dim_clientes') }}
@@ -18,6 +21,7 @@ with
         select *
         from {{ ref('dim_agencias') }}
     )
+
 
     ,joined as (
         select
@@ -61,6 +65,8 @@ with
             ,co.data_abertura as conta_data_abertura
             ,co.data_ultimo_lancamento as conta_ultimo_lancamento
 
+            ,c.cotacao
+
         from transacoes t
         left join contas co
             on t.num_conta_id = co.num_conta_id
@@ -68,6 +74,8 @@ with
             on co.cod_cliente_id = cl.cliente_pk
         left join agencias a
             on co.cod_agencia_id = a.agencia_pk
+        left join cotacao c
+            on t.data_transacao = c.date_id
     )
 
 select *

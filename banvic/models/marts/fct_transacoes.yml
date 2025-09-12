@@ -27,14 +27,6 @@ models:
         description: "Data e hora da transação"
       - name: data_transacao_date
         description: "Data da transação (apenas data, sem hora)"
-      - name: ano
-        description: "Ano da transação"
-      - name: mes
-        description: "Mês da transação"
-      - name: dia_semana
-        description: "Dia da semana da transação"
-      - name: mes_par_impar
-        description: "Classificação se o mês é par ou ímpar"
       - name: nome_transacao
         description: "Nome ou tipo da transação"
       - name: valor_transacao
