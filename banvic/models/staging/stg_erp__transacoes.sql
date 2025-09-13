@@ -1,22 +1,18 @@
-with 
+with
     source as (
-        select * 
+        select *
         from {{ source('banvic_raw', 'transacoes') }}
     )
 
-    ,renamed as (
-        select 
-             --Primary Key
-             cast(cod_transacao as varchar) as cod_transacao_id
-            --Foreign Key
-            ,cast(num_conta as varchar) as num_conta_id
-            --Data
-            ,cast(data_transacao as date) as data_transacao
-            ,cast(nome_transacao as varchar) as nome_transacao
-            ,cast(valor_transacao as float) as valor_transacao
+    , renamed as (
+        select
+            cast(cod_transacao as varchar) as transacao_id
+            , cast(num_conta as varchar) as conta_id
+            , cast(data_transacao as timestamp) as transacao_timestamp
+            , cast(nome_transacao as varchar) as nome_transacao
+            , cast(valor_transacao as float) as valor_transacao
         from source
     )
 
 select *
 from renamed
-

@@ -2,68 +2,35 @@ models:
   - name: fct_transacoes
     description: "Tabela de fatos de transações bancárias com dimensões relacionadas"
     columns:
-      - name: transacao_pk
+      - name: transacao_id
         description: "Chave primária da transação"
         tests:
           - unique
           - not_null
-      
-      # Foreign Keys
-      - name: cliente_fk
+
+      - name: cliente_id
         description: "Chave estrangeira para a dimensão de clientes"
         tests:
           - not_null
-      - name: agencia_fk
+      - name: agencia_id
         description: "Chave estrangeira para a dimensão de agências"
         tests:
           - not_null
-      
-      # Transaction Details
-      - name: cod_transacao_id
-        description: "Código identificador da transação"
-      - name: num_conta_id
+
+
+      - name: conta_id
         description: "Número da conta relacionada à transação"
-      - name: data_transacao
+      - name: transacao_timestamp
         description: "Data e hora da transação"
-      - name: data_transacao_date
+      - name: data_transacao
         description: "Data da transação (apenas data, sem hora)"
       - name: nome_transacao
         description: "Nome ou tipo da transação"
       - name: valor_transacao
         description: "Valor da transação (pode ser positivo ou negativo)"
-      - name: valor_abs
+      - name: valor_transacao_abs
         description: "Valor absoluto da transação"
-      - name: entrada_saida
+      - name: tipo_transacao
         description: "Classificação se é entrada, saída ou neutro"
-      
-      # Client Information
-      - name: cliente_nome
-        description: "Nome completo do cliente"
-      - name: tipo_cliente_desc
-        description: "Descrição do tipo de cliente"
-      - name: cliente_idade
-        description: "Idade do cliente em anos"
-      - name: cliente_dias_cadastro
-        description: "Dias desde o cadastro do cliente"
-      
-      # Agency Information
-      - name: agencia_nome
-        description: "Nome da agência"
-      - name: agencia_cidade
-        description: "Cidade da agência"
-      - name: agencia_uf
-        description: "Estado da agência"
-      - name: tipo_agencia
-        description: "Tipo da agência"
-      
-      # Account Information
-      - name: tipo_conta
-        description: "Tipo da conta"
-      - name: saldo_total
-        description: "Saldo total da conta"
-      - name: saldo_disponivel
-        description: "Saldo disponível da conta"
-      - name: conta_data_abertura
-        description: "Data de abertura da conta"
-      - name: conta_ultimo_lancamento
-        description: "Data do último lançamento na conta"
+      - name: cotacao
+        description: "Cotação do dólar do dia da transação"

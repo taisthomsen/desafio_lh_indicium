@@ -4,27 +4,20 @@ with
         from {{ ref('stg_erp__contas') }}
     )
 
-    ,renamed as (
+    , renamed as (
         select
-            --Primary Key
-            num_conta_id as conta_id
+            conta_id
+            , cliente_id
+            , agencia_id
+            , colaborador_id
+            , tipo_conta
+            , data_abertura
+            , saldo_total
+            , saldo_disponivel
+            , data_ultimo_lancamento
 
-            --Foreign Key
-            ,cod_cliente_id as cliente_id
-            ,cod_agencia_id as agencia_id
-            ,cod_colaborador_id as colaborador_id
-
-            --Data
-            ,tipo_conta
-            ,data_abertura
-            ,saldo_total
-            ,saldo_disponivel
-            ,data_ultimo_lancamento
-        
         from contas
     )
 
 select *
 from renamed
-
-

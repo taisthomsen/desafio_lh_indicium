@@ -2,7 +2,7 @@ models:
   - name: dim_dates
     description: "Dimensão de datas para análises temporais e sazonais"
     columns:
-      - name: date_id
+      - name: data_id
         description: "Chave primária da data (formato YYYY-MM-DD)"
         tests:
           - unique
@@ -57,7 +57,3 @@ models:
         description: "Ano ISO (baseado em semanas ISO)"
       - name: dia_semana_iso
         description: "Dia da semana ISO (1=segunda, 7=domingo)"
-      - name: created_at
-        description: "Timestamp de criação do registro"
-      - name: source_table
-        description: "Tabela de origem do registro"

@@ -11,23 +11,21 @@ with
 
     , transformed as (
         select
-            -- Primary key
-            c.cod_colaborador_id as colaborador_id
-            ,c.primeiro_nome
-            ,c.ultimo_nome
-            ,concat(c.primeiro_nome, ' ', c.ultimo_nome) as nome_completo
-            ,c.email
-            ,c.cpf
-            ,c.data_nascimento
-            ,extract(year from age(current_date, c.data_nascimento)) as idade_anos
-            ,c.endereco
-            ,c.cep
-            ,ca.cod_agencia_id as agencia_fk
-        from colaborador_agencia ca
-        left join colaboradores c
-            on ca.cod_colaborador_id = c.cod_colaborador_id
+            c.colaborador_id
+            , ca.agencia_id
+            , c.primeiro_nome
+            , c.ultimo_nome
+            , concat(c.primeiro_nome, ' ', c.ultimo_nome) as nome_completo
+            , c.email
+            , c.cpf
+            , c.data_nascimento
+            , extract(year from age(current_date, c.data_nascimento)) as idade_anos
+            , c.endereco
+            , c.cep
+        from colaborador_agencia as ca
+        left join colaboradores as c
+            on ca.colaborador_id = c.colaborador_id
     )
 
 select *
 from transformed
-

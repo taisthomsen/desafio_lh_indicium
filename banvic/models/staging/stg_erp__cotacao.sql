@@ -1,14 +1,14 @@
-with 
+with
     source as (
         select * from {{ source('cotacao', 'usd_brl') }}
     )
-    ,transformed as (
+
+    , transformed as (
         select
-            cast(to_timestamp(close_date, 'DD/MM/YYYY HH24:MI:SS') as date) as date_id
+            cast(to_timestamp(close_date, 'DD/MM/YYYY HH24:MI:SS') as date) as data_id
             , cast(exchange_rate_br as float) as cotacao
         from source
     )
 
-select * 
+select *
 from transformed
-    

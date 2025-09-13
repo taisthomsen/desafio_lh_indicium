@@ -6,21 +6,15 @@ with
 
     , transformed as (
         select
-            -- Primary key
-            cod_agencia_id as agencia_id
-            ,nome
-            ,endereco
-            ,cidade
-            ,uf
-            ,data_abertura
-            ,extract(year from data_abertura) as ano_abertura
-            ,extract(month from data_abertura) as mes_abertura
-            ,extract(day from data_abertura) as dia_abertura
-            ,tipo_agencia
+            agencia_id
+            , nome
+            , endereco
+            , cidade
+            , uf
+            , data_abertura
+            , tipo_agencia
         from source
     )
 
 select *
 from transformed
-
-

@@ -4,9 +4,8 @@ with
         from {{ ref('int_agencias') }}
     )
 
-    ,renamed as (
+    , renamed as (
         select
-            --Primary Key
             agencia_id
             , nome
             , endereco

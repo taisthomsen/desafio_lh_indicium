@@ -2,7 +2,7 @@ models:
   - name: dim_agencias
     description: "Dimensão de agências bancárias para análises geográficas e operacionais"
     columns:
-      - name: agencia_pk
+      - name: agencia_id
         description: "Chave primária da agência"
         tests:
           - unique

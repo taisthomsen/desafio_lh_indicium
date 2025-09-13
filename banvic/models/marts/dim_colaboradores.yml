@@ -2,12 +2,12 @@ models:
   - name: dim_colaboradores
     description: "Dimensão de colaboradores para análises de recursos humanos e operacionais"
     columns:
-      - name: colaborador_pk
+      - name: colaborador_id
         description: "Chave primária do colaborador"
         tests:
           - unique
           - not_null
-      - name: agencia_fk
+      - name: agencia_id
         description: "Chave estrangeira para a agência do colaborador"
       - name: nome_completo
         description: "Nome completo do colaborador"

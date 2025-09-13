@@ -1,10 +1,9 @@
-
 version: 2
 
 sources:
   - name: banvic_raw
     description: "Dados brutos do sistema ERP Banvic"
-    schema: dev
+    schema: dev_banvic_raw
     tables:
       - name: agencias
         description: "Dados das agências bancárias"
@@ -158,38 +157,29 @@ sources:
           - name: cod_agencia
             description: "Código da agência - chave estrangeira"
 
-      - name: usd_brl
-        description: "Taxa de câmbio USD/BRL histórica"
-        columns:
-          - name: date
-            description: "Data da taxa de câmbio"
-            data_tests:
-              - not_null
-          - name: exchange_rate_br
-            description: "Taxa de câmbio USD para BRL"
-            data_tests:
-              - not_null
-
+  - name: feriados
+    description: "Feriados de Florianópolis/SC"
+    schema: dev
+    tables:
       - name: feriados_pmf
-        description: "Feriados de Florianópolis/SC"
         columns:
-          - name: Data
+          - name: data
             description: "Data do feriado"
             data_tests:
               - not_null
-          - name: Dia_da_Semana
+          - name: dia_da_semana
             description: "Dia da semana do feriado"
-          - name: Feriado
+          - name: nome_feriado
             description: "Nome do feriado"
-  
+
   - name: cotacao
     description: "Cotacao do dolar"
-    schema: dev
+    schema: dev_exchange_rate_raw
     tables:
       - name: usd_brl
         description: "Cotacao do dolar"
         columns:
-          - name: date
+          - name: close_date
             description: "Data da cotacao"
             data_tests:
               - not_null

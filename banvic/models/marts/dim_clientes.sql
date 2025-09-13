@@ -4,9 +4,8 @@ with
         from {{ ref('int_clientes') }}
     )
 
-    ,renamed as (
+    , renamed as (
         select
-            --Primary Key
             cliente_id
             , nome_completo
             , email

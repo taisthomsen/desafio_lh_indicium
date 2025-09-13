@@ -2,7 +2,7 @@ models:
   - name: dim_clientes
     description: "Dimensão de clientes para análises demográficas e comportamentais"
     columns:
-      - name: cliente_pk
+      - name: cliente_id
         description: "Chave primária do cliente"
         tests:
           - unique

@@ -7,8 +7,7 @@ models:
         tests:
           - unique
           - not_null
-      
-      # Foreign Keys
+
       - name: colaborador_id
         description: "Chave estrangeira para a dimensão de colaboradores"
         tests:
@@ -21,8 +20,7 @@ models:
         description: "Chave estrangeira para a dimensão de agências"
         tests:
           - not_null
-      
-      # Proposal Details
+
       - name: data_entrada_proposta
         description: "Data de entrada da proposta no sistema"
       - name: taxa_juros_mensal
