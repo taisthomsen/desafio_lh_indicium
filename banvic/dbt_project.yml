@@ -1,4 +1,3 @@
-
 name: 'banvic_dbt'
 version: '1.0.0'
 config-version: 2
@@ -6,6 +5,9 @@ config-version: 2
 
 profile: 'banvic'
 
+vars:
+  start_date: '2010-02-01'
+  end_date: '2023-02-01'
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -18,8 +20,6 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-
-
 models:
   banvic_dbt:
     +materialized: ephemeral
@@ -29,8 +29,6 @@ models:
       +materialized: view
     marts:
       +materialized: table
-      
-
 
 seeds:
   banvic_dbt:
