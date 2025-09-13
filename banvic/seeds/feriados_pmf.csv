@@ -1,4 +1,4 @@
-Data,Dia_da_Semana,Feriado
+data,dia_da_semana,nome_feriado
 1/1/25,quarta-feira,Confraternização Universal
 3/3/25,segunda-feira,Carnaval
 4/3/25,terça-feira,Carnaval
@@ -13,6 +13,3 @@ Data,Dia_da_Semana,Feriado
 15/11/25,sábado,Proclamação da República
 20/11/25,quinta-feira,Dia Nacional de Zumbi e da Consciência Negra
 25/12/25,quinta-feira,Natal
-
-Pascoa
-  round(DIA(MINUTO(ano/38)/2+56)||'/5'||'/'||ano,7)-34
