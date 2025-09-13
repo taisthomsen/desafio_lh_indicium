@@ -1,5 +1,8 @@
 dbt-core
 dbt-postgres
+sqlfluff
+sqlfluff-templater-dbt
+yamllint
 ipykernel
 pandas
 numpy

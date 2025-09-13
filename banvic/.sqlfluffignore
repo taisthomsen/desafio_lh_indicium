@@ -1,0 +1,6 @@
+analysis/
+macros/
+dbt_packages/
+target/
+models/calendar/
+venv/

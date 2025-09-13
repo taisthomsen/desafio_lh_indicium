@@ -1,0 +1,317 @@
+[sqlfluff]
+verbose = 2
+nocolor = False
+dialect = postgres
+templater = dbt
+rules = all
+exclude_rules = L026, L031, L034, CP02, CP05, RF06, AL06
+output_line_length = 80
+runaway_limit = 10
+ignore = None
+warnings = TMP, PRS
+warn_unused_ignores = True
+ignore_templated_areas = False
+encoding = utf-8
+disable_noqa = False
+sql_file_exts = .sql,.sql.j2,.dml,.ddl
+fix_even_unparsable = False
+large_file_skip_byte_limit = 20000
+processes = -1
+max_line_length = 150
+render_variant_limit = 1
+
+[sqlfluff:indentation]
+indent_unit = space
+tab_space_size = 4
+indented_joins = False
+indented_ctes = True
+indented_using_on = True
+indented_on_contents = False
+indented_then = True
+indented_then_contents = True
+allow_implicit_indents = False
+template_blocks_indent = False
+skip_indentation_in = script_content
+trailing_comments = before
+ignore_comment_lines = False
+
+[sqlfluff:layout:type:comma] #LT04;L019
+spacing_before = touch
+line_position = leading
+
+[sqlfluff:layout:type:binary_operator] #LT03;L007
+spacing_within = touch
+line_position = leading
+
+[sqlfluff:layout:type:statement_terminator]
+spacing_before = touch
+line_position = leading
+
+[sqlfluff:layout:type:end_of_file] #LT12;L009
+spacing_before = touch
+
+[sqlfluff:layout:type:set_operator] #LT11;L065
+line_position = alone:strict
+
+[sqlfluff:layout:type:start_bracket]
+spacing_after = touch
+
+[sqlfluff:layout:type:end_bracket]
+spacing_before = touch
+
+[sqlfluff:layout:type:start_square_bracket]
+spacing_after = touch
+
+[sqlfluff:layout:type:end_square_bracket]
+spacing_before = touch
+
+[sqlfluff:layout:type:start_angle_bracket]
+spacing_after = touch
+
+[sqlfluff:layout:type:end_angle_bracket]
+spacing_before = touch
+
+[sqlfluff:layout:type:casting_operator]
+spacing_before = touch
+spacing_after = touch:inline
+
+[sqlfluff:layout:type:slice]
+spacing_before = touch
+spacing_after = touch
+
+[sqlfluff:layout:type:dot]
+spacing_before = touch
+spacing_after = touch
+
+[sqlfluff:layout:type:comparison_operator] #LT03;L007
+spacing_within = touch
+line_position = leading
+
+[sqlfluff:layout:type:assignment_operator]
+spacing_within = touch
+line_position = leading
+
+[sqlfluff:layout:type:object_reference]
+spacing_within = touch:inline
+
+[sqlfluff:layout:type:numeric_literal]
+spacing_within = touch:inline
+
+[sqlfluff:layout:type:sign_indicator]
+spacing_after = touch:inline
+
+[sqlfluff:layout:type:tilde]
+spacing_after = touch:inline
+
+[sqlfluff:layout:type:function_name] #CP03;L030
+spacing_within = touch:inline
+spacing_after = touch:inline
+
+[sqlfluff:layout:type:array_type]
+spacing_within = touch:inline
+
+[sqlfluff:layout:type:typed_array_literal]
+spacing_within = touch
+
+[sqlfluff:layout:type:sized_array_type]
+spacing_within = touch
+
+[sqlfluff:layout:type:struct_type]
+spacing_within = touch:inline
+
+[sqlfluff:layout:type:bracketed_arguments]
+spacing_before = touch:inline
+
+[sqlfluff:layout:type:typed_struct_literal]
+spacing_within = touch
+
+[sqlfluff:layout:type:semi_structured_expression]
+spacing_within = touch:inline
+spacing_before = touch:inline
+
+[sqlfluff:layout:type:array_accessor]
+spacing_before = touch:inline
+
+[sqlfluff:layout:type:colon]
+spacing_before = touch
+
+[sqlfluff:layout:type:colon_delimiter]
+spacing_before = touch
+spacing_after = touch
+
+[sqlfluff:layout:type:path_segment]
+spacing_within = touch
+
+[sqlfluff:layout:type:sql_conf_option]
+spacing_within = touch
+
+[sqlfluff:layout:type:sqlcmd_operator]
+spacing_before = touch
+
+[sqlfluff:layout:type:comment]
+spacing_before = any
+spacing_after = any
+
+[sqlfluff:layout:type:pattern_expression]
+spacing_within = any
+
+[sqlfluff:layout:type:placeholder]
+spacing_before = any
+spacing_after = any
+
+[sqlfluff:layout:type:common_table_expression]
+spacing_within = single:inline
+
+[sqlfluff:layout:type:select_clause]
+line_position = alone
+
+[sqlfluff:layout:type:where_clause]
+line_position = alone
+
+[sqlfluff:layout:type:from_clause]
+line_position = alone
+
+[sqlfluff:layout:type:join_clause]
+line_position = alone
+
+[sqlfluff:layout:type:groupby_clause]
+line_position = alone
+
+[sqlfluff:layout:type:orderby_clause]
+line_position = leading
+
+[sqlfluff:layout:type:having_clause]
+line_position = alone
+
+[sqlfluff:layout:type:limit_clause]
+line_position = alone
+
+[sqlfluff:layout:type:template_loop]
+spacing_before = any
+spacing_after = any
+
+[sqlfluff:templater]
+unwrap_wrapped_queries = True
+
+[sqlfluff:templater:jinja]
+apply_dbt_builtins = True
+load_macros_from_path = macros, dbt_packages/
+
+[sqlfluff:templater:dbt]
+project_dir = ./
+profiles_dir = ./
+
+[sqlfluff:rules] #AL03;L013 / CP02;L014 / RF04;L029 / RF05;L057 / CP01;L010
+allow_scalar = True
+single_table_references = consistent
+unquoted_identifiers_policy = all
+
+[sqlfluff:rules:capitalisation.keywords] #CP01;L010
+capitalisation_policy = lower
+ignore_words = None
+ignore_words_regex = None
+
+[sqlfluff:rules:capitalisation.identifiers] #CP02;L014
+extended_capitalisation_policy = lower
+ignore_words = None
+ignore_words_regex = None
+
+[sqlfluff:rules:capitalisation.functions] #CP04;L030
+extended_capitalisation_policy = lower
+ignore_words = None
+ignore_words_regex = None
+
+[sqlfluff:rules:capitalisation.literals] #CP04;L040
+capitalisation_policy = lower
+ignore_words = None
+ignore_words_regex = None
+
+[sqlfluff:rules:capitalisation.types] #CP04;L063
+extended_capitalisation_policy = lower
+ignore_words = None
+ignore_words_regex = None
+
+[sqlfluff:rules:ambiguous.join] #AM05;L051
+fully_qualify_join_types = inner
+
+[sqlfluff:rules:ambiguous.column_references] #AM06;L054
+group_by_and_order_by_style = explicit
+
+[sqlfluff:rules:aliasing.table] #AL01;L011
+aliasing = explicit
+
+[sqlfluff:rules:aliasing.column] #AL02;L012
+aliasing = explicit
+
+[sqlfluff:rules:aliasing.unused] #AL05;L025
+alias_case_check = dialect
+
+[sqlfluff:rules:aliasing.length] #AL06;L066
+min_alias_length = 3
+max_alias_length = None
+
+[sqlfluff:rules:aliasing.forbid] #AL06;L031
+force_enable = False
+
+[sqlfluff:rules:convention.not_equal] #CV01;L061
+preferred_not_equal_style = consistent
+
+[sqlfluff:rules:convention.select_trailing_comma] #CV03;L038
+select_clause_trailing_comma = forbid
+
+[sqlfluff:rules:convention.count_rows] #CV04;L047
+prefer_count_1 = True
+prefer_count_0 = False
+
+[sqlfluff:rules:convention.terminator] #CV06;L052
+multiline_newline = False
+require_final_semicolon = False
+
+[sqlfluff:rules:convention.blocked_words] #CV09;L062
+blocked_words = None
+blocked_regex = None
+match_source = False
+
+[sqlfluff:rules:convention.quoted_literals] #CV10;L064
+preferred_quoted_literal_style = consistent
+force_enable = False
+
+[sqlfluff:rules:convention.casting_style] #CV11;L067
+preferred_type_casting_style = cast
+
+[sqlfluff:rules:references.from] #RF01;L026
+force_enable = False
+
+[sqlfluff:rules:references.qualification] #RF02;L027
+ignore_words = None
+ignore_words_regex = None
+
+[sqlfluff:rules:references.consistent] #RF03;L028
+force_enable = True
+
+[sqlfluff:rules:references.keywords] #RF04;L029
+unquoted_identifiers_policy = aliases
+quoted_identifiers_policy = none
+ignore_words = None
+ignore_words_regex = None
+
+[sqlfluff:rules:references.special_chars] #RF05;L057
+unquoted_identifiers_policy = all
+quoted_identifiers_policy = all
+allow_space_in_identifier = False
+additional_allowed_characters = None
+ignore_words = None
+ignore_words_regex = None
+
+[sqlfluff:rules:layout.long_lines] #LT05;L016
+ignore_comment_lines = False
+ignore_comment_clauses = False
+
+[sqlfluff:rules:layout.select_targets]
+wildcard_policy = single
+
+[sqlfluff:rules:structure.subquery] #ST05;L042
+forbid_subquery_in = both
+
+[sqlfluff:rules:structure.join_condition_order] #ST09;
+preferred_first_table_in_join_clause = earlier
