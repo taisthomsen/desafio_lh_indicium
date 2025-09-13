@@ -7,7 +7,7 @@ with
     ,renamed as (
         select
             --Primary Key
-            colaborador_pk
+            colaborador_id
             ,agencia_fk
             ,nome_completo
             ,email

@@ -7,7 +7,7 @@ with
     ,renamed as (
         select
             --Primary Key
-            agencia_pk 
+            agencia_id
             , nome
             , endereco
             , cidade

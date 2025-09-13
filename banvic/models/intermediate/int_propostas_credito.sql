@@ -7,9 +7,9 @@ with
     , transformed as (
         select
             -- Primary key
-            cod_proposta_id as proposta_pk
-            ,cod_cliente_id as cliente_fk
-            ,cod_colaborador_id as colaborador_fk
+            cod_proposta_id as proposta_id
+            ,cod_cliente_id as cliente_id
+            ,cod_colaborador_id as colaborador_id
             ,data_entrada_proposta
             ,taxa_juros_mensal
             ,valor_proposta

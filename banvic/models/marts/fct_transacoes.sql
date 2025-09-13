@@ -6,7 +6,7 @@ with
 
     ,contas as (
         select *
-        from {{ ref('stg_erp__contas') }}
+        from {{ ref('dim_contas') }}
     )
     ,cotacao as (
         select *
@@ -21,16 +21,18 @@ with
         select *
         from {{ ref('dim_agencias') }}
     )
-
+    
 
     ,joined as (
         select
             -- Primary Key
-            t.transacao_pk
+            t.transacao_id
             
             -- Foreign Keys
-            ,co.cod_cliente_id as cliente_fk
-            ,a.agencia_pk as agencia_fk
+            ,cl.cliente_id 
+            ,con.conta_id
+            ,a.agencia_id
+    
             
             -- Transaction Details
             ,t.cod_transacao_id
@@ -55,23 +57,24 @@ with
             ,a.tipo_agencia
             
             -- Account Information
-            ,co.tipo_conta
-            ,co.saldo_total
-            ,co.saldo_disponivel
-            ,co.data_abertura as conta_data_abertura
-            ,co.data_ultimo_lancamento as conta_ultimo_lancamento
+            ,con.tipo_conta
+            ,con.saldo_total
+            ,con.saldo_disponivel
+            ,con.data_abertura as conta_data_abertura
+            ,con.data_ultimo_lancamento as conta_ultimo_lancamento
 
             ,c.cotacao
 
         from transacoes t
-        left join contas co
-            on t.num_conta_id = co.num_conta_id
+        left join contas con
+            on t.num_conta_id = con.conta_id
         left join clientes cl
-            on co.cod_cliente_id = cl.cliente_pk
+            on con.cliente_id = cl.cliente_id
         left join agencias a
-            on co.cod_agencia_id = a.agencia_pk
+            on con.agencia_id = a.agencia_id
         left join cotacao c
             on t.data_transacao = c.date_id
+     
     )
 
 select *

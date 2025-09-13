@@ -7,7 +7,7 @@ with
     ,renamed as (
         select
             --Primary Key
-            cliente_pk
+            cliente_id
             , nome_completo
             , email
             , tipo_cliente_desc

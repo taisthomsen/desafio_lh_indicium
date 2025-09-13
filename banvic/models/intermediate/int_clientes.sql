@@ -7,7 +7,7 @@ with
     , transformed as (
         select
             -- Primary key
-            cod_cliente_id as cliente_pk
+            cod_cliente_id as cliente_id
             ,primeiro_nome
             ,ultimo_nome
             ,concat(primeiro_nome, ' ', ultimo_nome) as nome_completo

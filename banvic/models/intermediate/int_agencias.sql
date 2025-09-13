@@ -7,7 +7,7 @@ with
     , transformed as (
         select
             -- Primary key
-            cod_agencia_id as agencia_pk
+            cod_agencia_id as agencia_id
             ,nome
             ,endereco
             ,cidade

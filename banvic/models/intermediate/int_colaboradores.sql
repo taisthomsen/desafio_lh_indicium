@@ -12,7 +12,7 @@ with
     , transformed as (
         select
             -- Primary key
-            c.cod_colaborador_id as colaborador_pk
+            c.cod_colaborador_id as colaborador_id
             ,c.primeiro_nome
             ,c.ultimo_nome
             ,concat(c.primeiro_nome, ' ', c.ultimo_nome) as nome_completo

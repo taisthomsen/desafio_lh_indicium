@@ -2,22 +2,22 @@ models:
   - name: fct_propostas_credito
     description: "Tabela de fatos de propostas de crédito com dimensões relacionadas"
     columns:
-      - name: proposta_pk
+      - name: proposta_id
         description: "Chave primária da proposta de crédito"
         tests:
           - unique
           - not_null
       
       # Foreign Keys
-      - name: colaborador_fk
+      - name: colaborador_id
         description: "Chave estrangeira para a dimensão de colaboradores"
         tests:
           - not_null
-      - name: cliente_fk
+      - name: cliente_id
         description: "Chave estrangeira para a dimensão de clientes"
         tests:
           - not_null
-      - name: agencia_fk
+      - name: agencia_id
         description: "Chave estrangeira para a dimensão de agências"
         tests:
           - not_null

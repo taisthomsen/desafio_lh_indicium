@@ -16,7 +16,7 @@ with
 
     ,contas as (
         select *
-        from {{ ref('stg_erp__contas') }}
+        from {{ ref('dim_contas') }}
     )
 
     ,agencias as (
@@ -27,12 +27,12 @@ with
     ,final as (
         select
             -- Primary Key
-            p.proposta_pk
+            p.proposta_id
             
             -- Foreign Keys
-            ,c.colaborador_pk as colaborador_fk
-            ,cl.cliente_pk as cliente_fk
-            ,a.agencia_pk as agencia_fk
+            ,c.colaborador_id 
+            ,cl.cliente_id 
+            ,a.agencia_id 
             
             -- Proposal Details
             ,p.data_entrada_proposta
@@ -47,13 +47,13 @@ with
 
         from propostas p
         left join colaboradores c 
-            on p.colaborador_fk = c.colaborador_pk
+            on p.colaborador_id = c.colaborador_id
         left join clientes cl 
-            on p.cliente_fk = cl.cliente_pk
+            on p.cliente_id = cl.cliente_id
         left join contas co
-            on cl.cliente_pk = co.cod_cliente_id
+            on cl.cliente_id = co.cliente_id
         left join agencias a 
-            on co.cod_agencia_id = a.agencia_pk
+            on co.agencia_id = a.agencia_id
     )
 
 select *
