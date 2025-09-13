@@ -33,7 +33,8 @@ models:
 
 
 seeds:
-  exchange_rate:
-    +schema: exchange_rate_raw
-  banvic:
-    +schema: banvic_raw
+  banvic_dbt:
+    exchange_rate:
+      +schema: exchange_rate_raw
+    banvic:
+      +schema: banvic_raw
